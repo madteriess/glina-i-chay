@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глина и чай — Керамическая мастерская и мастер-классы в уютной атмосфере</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-terracotta: #B4654A;
+            --color-terracotta-hover: #9E533B;
+            --color-bg-warm: #F5EFE6;
+            --color-cream: #FAF6F0;
+            --color-text-dark: #3E2C23;
+            --color-olive: #7A8B6F;
+            --color-sand: #E8DDD0;
+            --color-overlay: rgba(62, 44, 35, 0.55);
+            
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+            
+            --shadow-soft: 0 4px 20px rgba(62, 44, 35, 0.06);
+            --shadow-hover: 0 10px 30px rgba(62, 44, 35, 0.12);
+            --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg-warm);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-text-dark);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; }
+        p { margin-bottom: 1rem; color: var(--color-text-dark); opacity: 0.9; }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-terracotta);
+            margin: 0.5rem auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--color-olive);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* UI Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: var(--transition-base);
+            border: none;
+            outline: none;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-terracotta);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(180, 101, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-terracotta-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(180, 101, 74, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-text-dark);
+            border: 1.5px solid var(--color-text-dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-text-dark);
+            color: var(--color-cream);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary-light {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-secondary-light:hover {
+            background-color: #ffffff;
+            color: var(--color-text-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(62, 44, 35, 0.05);
+            transition: var(--transition-base);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 75px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--color-terracotta);
+        }
+
+        .nav-list {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-terracotta);
+            transition: var(--transition-base);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-btn {
+            display: none;
+        }
+
+        /* Mobile Burger */
+        .burger-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0;
+        }
+
+        .burger-bar {
+            width: 100%;
+            height: 2.5px;
+            background-color: var(--color-text-dark);
+            border-radius: 2px;
+            transition: var(--transition-base);
+        }
+
+        .burger-btn.active .burger-bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .burger-btn.active .burger-bar:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-btn.active .burger-bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 75px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 75px);
+            background-color: var(--color-cream);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.4s ease-in-out;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav .nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .mobile-nav .nav-link {
+            font-size: 1.3rem;
+            font-family: var(--font-heading);
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 75px;
+            background: linear-gradient(var(--color-overlay), var(--color-overlay)), 
+                        url('https://picsum.photos/seed/pottery-hero-bg/1600/900') center/cover no-repeat;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(232, 221, 208, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.4rem 1.2rem;
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--color-sand);
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+            font-size: 2.8rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .about {
+            background-color: var(--color-cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            transition: var(--transition-base);
+        }
+
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1.03);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--color-bg-warm);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            border-left: 4px solid var(--color-terracotta);
+        }
+
+        .about-badge span {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-terracotta);
+            line-height: 1;
+        }
+
+        .about-badge p {
+            margin: 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--color-text-dark);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .feature-item svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-olive);
+            flex-shrink: 0;
+        }
+
+        .process {
+            background-color: var(--color-bg-warm);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .timeline-step {
+            background-color: var(--color-cream);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            transition: var(--transition-base);
+            border: 1px solid var(--color-sand);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .timeline-step:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background-color: var(--color-terracotta);
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-sand);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: var(--color-terracotta);
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .step-content p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .workshops {
+            background-color: var(--color-cream);
+        }
+
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .workshop-card {
+            background-color: var(--color-bg-warm);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-base);
+            border: 1px solid var(--color-sand);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .workshop-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .workshop-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .workshop-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--color-olive);
+            font-weight: 500;
+        }
+
+        .workshop-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .workshop-meta svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-olive);
+        }
+
+        .workshop-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .workshop-desc {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .workshop-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pt: 1rem;
+            border-top: 1px solid var(--color-sand);
+            margin-top: auto;
+        }
+
+        .workshop-price {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-terracotta);
+        }
+
+        .reviews {
+            background-color: var(--color-bg-warm);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .review-card {
+            background-color: var(--color-cream);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--color-sand);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-base);
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+            color: #E5A93C;
+        }
+
+        .stars svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .review-text {
+            font-style: italic;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--color-olive);
+        }
+
+        .contacts {
+            background-color: var(--color-cream);
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background-color: var(--color-sand);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--color-terracotta);
+        }
+
+        .contact-details h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-details p, .contact-details a {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-details a:hover {
+            color: var(--color-terracotta);
+        }
+
+        /* Stylized Map Mock */
+        .map-mock {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-sand), var(--color-bg-warm));
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-sand);
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .map-mock svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--color-terracotta);
+            margin-bottom: 0.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Schedule Table */
+        .schedule-box {
+            background-color: var(--color-bg-warm);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-sand);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .schedule-box h3 {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .schedule-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            padding: 1rem;
+            background-color: var(--color-cream);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--color-terracotta);
+            transition: var(--transition-base);
+        }
+
+        .schedule-item:hover {
+            transform: translateX(4px);
+        }
+
+        .schedule-date {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--color-terracotta);
+        }
+
+        .schedule-title {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .schedule-spots {
+            font-size: 0.85rem;
+            color: var(--color-olive);
+            margin-top: -0.4rem;
+        }
+
+        .footer {
+            background-color: var(--color-text-dark);
+            color: var(--color-sand);
+            padding: 4rem 0 2rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(232, 221, 208, 0.7);
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .footer-links a {
+            color: rgba(232, 221, 208, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-terracotta);
+            padding-left: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-base);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--color-sand);
+        }
+
+        .social-link:hover {
+            background-color: var(--color-terracotta);
+        }
+
+        .social-link:hover svg {
+            fill: #ffffff;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 221, 208, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(232, 221, 208, 0.6);
+        }
+
+        .footer-bottom a {
+            color: rgba(232, 221, 208, 0.6);
+            text-decoration: underline;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--color-sand);
+        }
+
+        /* Modal Form */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--color-cream);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 1px solid var(--color-sand);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-text-dark);
+            opacity: 0.6;
+            transition: var(--transition-base);
+        }
+
+        .modal-close:hover { opacity: 1; }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1.5px solid var(--color-sand);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            background-color: var(--color-bg-warm);
+            outline: none;
+            transition: var(--transition-base);
+        }
+
+        .form-control:focus {
+            border-color: var(--color-terracotta);
+            background-color: #ffffff;
+        }
+
+        /* Extra Small Phones: 480px */
+        @media (min-width: 480px) {
+            h1 { font-size: 3rem; }
+            .hero-btns {
+                flex-direction: row;
+            }
+            .schedule-item {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        /* Tablets: 768px */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.4rem; }
+
+            .section-padding {
+                padding: 6rem 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-image {
+                height: 450px;
+            }
+
+            .workshops-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .contacts-grid {
+                grid-template-columns: 1fr 1.2fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            /* Timeline Horizontal on Larger screens */
+            .timeline {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            .timeline-step {
+                flex: 1;
+                padding: 1.8rem 1.2rem;
+            }
+
+            .step-number {
+                top: -16px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .step-icon {
+                margin: 0.5rem auto;
+            }
+
+            .step-content {
+                text-align: center;
+            }
+        }
+
+        /* Desktop: 1024px */
+        @media (min-width: 1024px) {
+            .nav-list {
+                display: flex;
+            }
+
+            .header-btn {
+                display: inline-flex;
+            }
+
+            .burger-btn {
+                display: none;
+            }
+
+            .workshops-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2,19A1,1 0 0,0 3,20H17A1,1 0 0,0 18,19V16H2V19M20,3H4A1,1 0 0,0 3,4V14A1,1 0 0,0 4,15H20A1,1 0 0,0 21,14V4A1,1 0 0,0 20,3M6,5H18V7H6V5M6,9H18V11H6V9M20,7A2,2 0 0,1 22,9A2,2 0 0,1 20,11V7Z"/>
+                </svg>
+                <span>Глина и чай</span>
+            </a>
+
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">О мастерской</a></li>
+                    <li><a href="#process" class="nav-link">Занятие</a></li>
+                    <li><a href="#workshops" class="nav-link">Мастер-классы</a></li>
+                    <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <button class="btn btn-primary btn-sm header-btn js-open-modal">Записаться</button>
+
+            <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+                <div class="burger-bar"></div>
+                <div class="burger-bar"></div>
+                <div class="burger-bar"></div>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul class="nav-list">
+                <li><a href="#about" class="nav-link mobile-link">О мастерской</a></li>
+                <li><a href="#process" class="nav-link mobile-link">Занятие</a></li>
+                <li><a href="#workshops" class="nav-link mobile-link">Мастер-классы</a></li>
+                <li><a href="#reviews" class="nav-link mobile-link">Отзывы</a></li>
+                <li><a href="#contacts" class="nav-link mobile-link">Контакты</a></li>
+            </ul>
+            <button class="btn btn-primary js-open-modal mobile-link">Записаться на занятие</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="hero-tag">Уютная керамическая студия</span>
+            <h1>Слепите своё первое изделие за один вечер</h1>
+            <p>Тёплая атмосфера, мягкий свет, ароматный китайский чай и магия создания керамики своими руками под руководством опытных мастеров.</p>
+            <div class="hero-btns">
+                <button class="btn btn-primary js-open-modal">Записаться на мастер-класс</button>
+                <a href="#about" class="btn btn-secondary-light">Узнать подробнее</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img src="https://picsum.photos/seed/potter-master/800/900" alt="Мастер за работой" class="about-image">
+                    <div class="about-badge">
+                        <span>7+</span>
+                        <p>лет уюта и творчества</p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <span class="subtitle">Наша философия</span>
+                    <h2>Пространство замедления и творчества</h2>
+                    <p>Мастерская «Глина и чай» создавалась как тихий остров среди городского шума. Мы верим, что работа с глиной — это лучшая медитация, возможность отключить мысли и прикоснуться к древнему ремеслу.</p>
+                    <p>Каждое занятие у нас — это не просто урок, а маленький ритуал. Мы лепим без спешки, пить чай из пиал ручной работы, слушаем винил и наслаждаемся процессом так же сильно, как и результатом.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Группы до 6 человек</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Премиальная глина</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Коллекционный чай</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Готовые изделия навсегда</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Как проходит мастер-класс</span>
+                <h2>Четыре шага к вашей первой чашке</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2,21H20V19H2M20,8H18V5F1,1 0 0,0 17,4H3A1,1 0 0,0 2,5V15A3,3 0 0,0 5,18H15A3,3 0 0,0 18,15V10H20A2,2 0 0,0 22,8V10A2,2 0 0,0 20,8M16,15A1,1 0 0,1 15,16H5A1,1 0 0,1 4,15V6H16V15M20,8V10H18V8H20Z"/></svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Знакомство и чай</h3>
+                        <p>Согреваемся горячим чаем, знакомимся с мастером, выбираем форму и эскиз будущего изделия.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z"/></svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Ручная лепка</h3>
+                        <p>Осваиваем базовые техники работы с пластом и жгутами, придаём глине фактуру и форму.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6Z"/></svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Гончарный круг</h3>
+                        <p>Пробуем центровать глину и вытягивать стенки сосуда на настоящем гончарном круге.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17.55,11.2C17.32,10.9 14.33,7.18 14.33,4.67C14.33,3.32 15.31,2.23 16.5,2.04C15.84,1.38 14.9,1 13.9,1C11.66,1 10.03,2.9 10.15,5.15C10.27,7.27 12,9.1 13.88,10.88C12.35,11.08 10.87,10.36 9.87,9.3C8.84,8.21 8.35,6.72 8.5,5.24C7.05,6 6.07,7.5 6.07,9.25C6.07,11.5 7.7,13.26 9.89,14C11.77,14.63 13.92,14.28 15.42,13.1C16.32,12.39 17.06,11.83 17.55,11.2Z"/></svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Обжиг и глазурь</h3>
+                        <p>Оставляем изделие на сушку и двоичный обжиг в печи. Через 2 недели забираете готовую посуду.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding workshops" id="workshops">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Выберите свой формат</span>
+                <h2>Наши мастер-классы</h2>
+            </div>
+
+            <div class="workshops-grid">
+                <!-- Card 1 -->
+                <div class="workshop-card">
+                    <img src="https://picsum.photos/seed/pottery-wheel/600/400" alt="Гончарный круг" class="workshop-img">
+                    <div class="workshop-body">
+                        <div class="workshop-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                                2 часа
+                            </span>
+                            <span>До 6 чел</span>
+                        </div>
+                        <h3 class="workshop-title">Знакомство с кругом</h3>
+                        <p class="workshop-desc">Идеальный старт для новичков. Создадите кружку или вазочку на гончарном круге и распишете ангобами.</p>
+                        <div class="workshop-footer">
+                            <span class="workshop-price">3 200 ₽</span>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-workshop="Знакомство с кругом">Записаться</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="workshop-card">
+                    <img src="https://picsum.photos/seed/pottery-hand/600/400" alt="Лепка руками" class="workshop-img">
+                    <div class="workshop-body">
+                        <div class="workshop-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                                2.5 часа
+                            </span>
+                            <span>До 8 чел</span>
+                        </div>
+                        <h3 class="workshop-title">Лепка: чашки и миски</h3>
+                        <p class="workshop-desc">Ручная пластика без круга. Создание уютной фактурной посуды с отпечатками растений или штампов.</p>
+                        <div class="workshop-footer">
+                            <span class="workshop-price">2 900 ₽</span>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-workshop="Лепка: чашки и миски">Записаться</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="workshop-card">
+                    <img src="https://picsum.photos/seed/pottery-couple/600/400" alt="Свидание" class="workshop-img">
+                    <div class="workshop-body">
+                        <div class="workshop-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                                2 часа
+                            </span>
+                            <span>Для двоих</span>
+                        </div>
+                        <h3 class="workshop-title">Свидание за кругом</h3>
+                        <p class="workshop-desc">Романтический вечер только для вас двоих: приглушённый свет, свечи, чайная церемония и совместная лепка.</p>
+                        <div class="workshop-footer">
+                            <span class="workshop-price">7 500 ₽</span>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-workshop="Свидание за кругом">Записаться</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="workshop-card">
+                    <img src="https://picsum.photos/seed/pottery-course/600/400" alt="Интенсив" class="workshop-img">
+                    <div class="workshop-body">
+                        <div class="workshop-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 2,12A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                                4 занятия
+                            </span>
+                            <span>До 5 чел</span>
+                        </div>
+                        <h3 class="workshop-title">Курс «Базовая керамика»</h3>
+                        <p class="workshop-desc">Погружение в ремесло: ручная лепка, гончарный круг, лощение, глазуровка и декорирование.</p>
+                        <div class="workshop-footer">
+                            <span class="workshop-price">11 800 ₽</span>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-workshop="Курс Базовая керамика">Записаться</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Отзывы гостей</span>
+                <h2>Теплые слова о нашем пространстве</h2>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div>
+                        <div class="stars">
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <p class="review-text">«Это невероятный перезагруз после тяжелой рабочей недели! Пришла одна, но почувствовала себя как в кругу старых друзей. А чашка, которую я слепила, теперь моя самая любимая.»</p>
+                    </div>
+                    <div class="review-author">
+                        <img src="https://picsum.photos/seed/user1/100/100" alt="Анна М." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Анна Мельникова</h4>
+                            <span>Мастер-класс по лепке</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div>
+                        <div class="stars">
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <p class="review-text">«Ходили с девушкой на свидание за гончарным кругом. Очень душевный мастер, вкусный улун и невероятная эстетика в студии. Девушка была в полном восторге!»</p>
+                    </div>
+                    <div class="review-author">
+                        <img src="https://picsum.photos/seed/user2/100/100" alt="Сергей К." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Сергей и Ольга</h4>
+                            <span>Свидание в студии</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div>
+                        <div class="stars">
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <p class="review-text">«Прошла базовый курс из 4 занятий. Очень понравился системный подход и внимание к деталям. Теперь у меня дома целый набор авторской посуды!»</p>
+                    </div>
+                    <div class="review-author">
+                        <img src="https://picsum.photos/seed/user3/100/100" alt="Елена В." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Елена Васильева</h4>
+                            <span>Курс «Базовая керамика»</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding contacts" id="contacts">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Ждём вас в гости</span>
+                <h2>Контакты и расписание</h2>
+            </div>
+
+            <div class="contacts-grid">
+                <!-- Left: Info & Map -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Наш адрес</h4>
+                            <p>г. Москва, ул. Гончарная, д. 12, стр. 2 (тихий дворик)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Телефон / WhatsApp</h4>
+                            <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z"/></svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Электронная почта</h4>
+                            <a href="mailto:hello@glina-tea.ru">hello@glina-tea.ru</a>
+                        </div>
+                    </div>
+
+                    <!-- Styled Map Placeholder -->
+                    <div class="map-mock">
+                        <svg viewBox="0 0 24 24"><path d="M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z"/></svg>
+                        <p><strong>Ждем вас в мастерской!</strong><br>5 минут от м. Таганская</p>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Schedule -->
+                <div class="schedule-box">
+                    <h3>Ближайшие даты <span style="font-size: 0.9rem; font-weight: normal; color: var(--color-olive);">Места ограничены</span></h3>
+                    
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div>
+                                <div class="schedule-date">Суббота, 14 октября — 15:00</div>
+                                <div class="schedule-title">Знакомство с кругом</div>
+                                <div class="schedule-spots">Осталось 2 места</div>
+                            </div>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-date="14 октября 15:00">Записаться</button>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div>
+                                <div class="schedule-date">Воскресенье, 15 октября — 12:00</div>
+                                <div class="schedule-title">Лепка: чашки и миски</div>
+                                <div class="schedule-spots">Осталось 4 места</div>
+                            </div>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-date="15 октября 12:00">Записаться</button>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div>
+                                <div class="schedule-date">Четверг, 19 октября — 19:00</div>
+                                <div class="schedule-title">Свидание за кругом</div>
+                                <div class="schedule-spots">Остался 1 стол</div>
+                            </div>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-date="19 октября 19:00">Записаться</button>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div>
+                                <div class="schedule-date">Суббота, 21 октября — 11:00</div>
+                                <div class="schedule-title">Курс «Базовая керамика»</div>
+                                <div class="schedule-spots">Старт новой группы</div>
+                            </div>
+                            <button class="btn btn-primary btn-sm js-open-modal" data-date="21 октября 11:00">Записаться</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg viewBox="0 0 24 24"><path d="M2,19A1,1 0 0,0 3,20H17A1,1 0 0,0 18,19V16H2V19M20,3H4A1,1 0 0,0 3,4V14A1,1 0 0,0 4,15H20A1,1 0 0,0 21,14V4A1,1 0 0,0 20,3M6,5H18V7H6V5M6,9H18V11H6V9M20,7A2,2 0 0,1 22,9A2,2 0 0,1 20,11V7Z"/></svg>
+                        <span>Глина и чай</span>
+                    </a>
+                    <p>Пространство ручной керамики и неторопливого чаепития. Создавайте уникальные вещи своими руками.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            <svg viewBox="0 0 24 24"><path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.6,18.23C10.38,18.45 10.19,18.65 9.78,18.65Z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="VKontakte">
+                            <svg viewBox="0 0 24 24"><path d="M15.07,2H8.93C3.33,2 2,3.33 2,8.93V15.07C2,20.67 3.33,22 8.93,22H15.07C20.67,22 22,20.67 22,15.07V8.93C22,3.33 20.67,2 15.07,2M17.62,15.65H16.13C15.57,15.65 15.4,15.2 14.73,14.53C14.12,13.93 13.88,13.82 13.7,13.82C13.45,13.82 13.37,13.9 13.37,14.34V15.15C13.37,15.47 13.26,15.65 12.43,15.65C10.73,15.65 8.92,14.61 7.64,12.77C6.1,10.57 5.64,8.5 5.64,8.14C5.64,7.95 5.72,7.82 6.07,7.82H7.57C7.96,7.82 8.1,7.98 8.24,8.38C8.92,10.37 10.08,12.11 10.5,12.11C10.66,12.11 10.74,12.03 10.74,11.6V9.82C10.68,8.74 10.05,8.65 10.05,8.27C10.05,8.04 10.23,7.82 10.7,7.82H13.06C13.4,7.82 13.52,8 13.52,8.38V10.87C13.52,11.13 13.64,11.23 13.75,11.23C13.88,11.23 14,11.13 14.25,10.88C15.23,9.75 15.93,8.14 15.93,8.14C16.04,7.93 16.19,7.82 16.58,7.82H18.08C18.5,7.82 18.61,8.04 18.5,8.38C18.06,9.41 16.65,11.4 16.65,11.4C16.5,11.62 16.44,11.75 16.65,12.03C16.8,12.24 17.15,12.56 17.5,12.96C18.15,13.67 18.66,14.53 18.82,15.07C18.95,15.47 18.77,15.65 17.62,15.65Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#about">О мастерской</a></li>
+                        <li><a href="#process">Как проходит занятие</a></li>
+                        <li><a href="#workshops">Виды мастер-классов</a></li>
+                        <li><a href="#reviews">Отзывы гостей</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Время работы</h4>
+                    <p style="color: rgba(232, 221, 208, 0.8); font-size: 0.95rem;">Среда — Воскресенье<br>с 11:00 до 21:00</p>
+                    <p style="color: rgba(232, 221, 208, 0.8); font-size: 0.95rem; margin-top: 0.5rem;">Понедельник, Вторник — выходные</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Керамическая мастерская «Глина и чай». Все права защищены.</p>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h3 style="margin-bottom: 0.5rem;">Запись на мастер-класс</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.5rem;" id="modalSubtitle">Оставьте контакты, и мы перезвоним для подтверждения времени.</p>
+            
+            <form id="bookingForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" class="form-control" placeholder="Елена" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+7 (999) 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="workshopSelect">Выберите мастер-класс</label>
+                    <select id="workshopSelect" class="form-control">
+                        <option value="Знакомство с кругом">Знакомство с кругом</option>
+                        <option value="Лепка: чашки и миски">Лепка: чашки и миски</option>
+                        <option value="Свидание за кругом">Свидание за кругом</option>
+                        <option value="Курс Базовая керамика">Курс «Базовая керамика»</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Подтвердить запись</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const burgerBtn = document.getElementById('burgerBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                burgerBtn.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            }
+
+            if (burgerBtn) {
+                burgerBtn.addEventListener('click', toggleMenu);
+            }
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileNav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Modal Functionality
+            const modal = document.getElementById('bookingModal');
+            const modalClose = document.getElementById('modalClose');
+            const openButtons = document.querySelectorAll('.js-open-modal');
+            const workshopSelect = document.getElementById('workshopSelect');
+            const modalSubtitle = document.getElementById('modalSubtitle');
+
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const workshopName = e.currentTarget.getAttribute('data-workshop');
+                    const dateInfo = e.currentTarget.getAttribute('data-date');
+
+                    if (workshopName && workshopSelect) {
+                        workshopSelect.value = workshopName;
+                    }
+
+                    if (dateInfo && modalSubtitle) {
+                        modalSubtitle.textContent = `Запись на дату: ${dateInfo}`;
+                    } else if (modalSubtitle) {
+                        modalSubtitle.textContent = 'Оставьте контакты, и мы перезвоним для подтверждения времени.';
+                    }
+
+                    modal.classList.add('active');
+                });
+            });
+
+            if (modalClose) {
+                modalClose.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Form Submit Handler
+        function handleFormSubmit() {
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.innerHTML = `
+                <div style="text-align: center; padding: 1rem 0;">
+                    <div style="width: 50px; height: 50px; background: var(--color-sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                        <svg viewBox="0 0 24 24" style="width: 30px; height: 30px; fill: var(--color-terracotta);"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">Спасибо за заявку!</h3>
+                    <p style="font-size: 0.95rem;">Мы свяжемся с вами в течение 15 минут для уточнения деталей.</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('bookingModal').classList.remove('active'); location.reload();" style="margin-top: 1.5rem;">Закрыть</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
