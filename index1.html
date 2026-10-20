@@ -1007,6 +1007,12 @@
     .preload * {
       transition: none !important;
     }
+
+    /* ---------- Подсветка формы и полей при переходе по CTA ---------- */
+    .booking-form.is-highlighted { animation: formPulse 1.1s ease; }
+    @keyframes formPulse { 0%{box-shadow:0 0 0 0 rgba(180,101,74,.45),var(--shadow-soft)} 60%{box-shadow:0 0 0 10px rgba(180,101,74,0),var(--shadow-soft)} 100%{box-shadow:0 0 0 0 rgba(180,101,74,0),var(--shadow-soft)} }
+    .form-control.is-prefilled { border-color: var(--olive); transition: border-color .25s ease; }
+    @media (prefers-reduced-motion: reduce) { .booking-form.is-highlighted { animation: none; } }
   </style>
 </head>
 <body class="preload">
@@ -1029,7 +1035,7 @@
         </ul>
       </nav>
 
-      <a href="#workshops" class="btn btn-primary btn-sm header-cta">Записаться</a>
+      <a href="#bookingFormWrap" class="btn btn-primary btn-sm header-cta" data-cta="open-form">Записаться</a>
 
       <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
         <span class="burger-line"></span>
@@ -1047,7 +1053,7 @@
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#contacts">Контакты</a></li>
       </ul>
-      <a href="#workshops" class="btn btn-primary">Записаться</a>
+      <a href="#bookingFormWrap" class="btn btn-primary" data-cta="open-form">Записаться</a>
     </div>
   </header>
 
@@ -1057,7 +1063,7 @@
       <h1>Слепите своё первое изделие за один вечер</h1>
       <p>Тёплая атмосфера мастерской, ароматный чай и глина, которая слушается ваших рук. Приходите замедлиться и создать что-то настоящее.</p>
       <div class="hero-buttons">
-        <a href="#workshops" class="btn btn-primary">Записаться на мастер-класс</a>
+        <a href="#bookingFormWrap" class="btn btn-primary" data-cta="open-form">Записаться на мастер-класс</a>
         <a href="#about" class="btn btn-light">Узнать подробнее</a>
       </div>
     </div>
@@ -1124,7 +1130,7 @@
               <span>⏱ 2,5 часа</span>
               <span>3 500 ₽</span>
             </div>
-            <a href="#contacts" class="btn btn-outline btn-sm">Записаться</a>
+            <a href="#bookingFormWrap" class="btn btn-outline btn-sm" data-cta="open-form" data-workshop="Первое знакомство с гончарным кругом">Записаться</a>
           </div>
         </article>
 
@@ -1138,7 +1144,7 @@
               <span>⏱ 3 часа</span>
               <span>4 000 ₽</span>
             </div>
-            <a href="#contacts" class="btn btn-outline btn-sm">Записаться</a>
+            <a href="#bookingFormWrap" class="btn btn-outline btn-sm" data-cta="open-form" data-workshop="Лепка руками: чашки и миски">Записаться</a>
           </div>
         </article>
 
@@ -1152,7 +1158,7 @@
               <span>⏱ 3 часа</span>
               <span>6 500 ₽</span>
             </div>
-            <a href="#contacts" class="btn btn-outline btn-sm">Записаться</a>
+            <a href="#bookingFormWrap" class="btn btn-outline btn-sm" data-cta="open-form" data-workshop="Парное занятие для двоих">Записаться</a>
           </div>
         </article>
 
@@ -1166,7 +1172,7 @@
               <span>⏱ 4 × 3 часа</span>
               <span>14 000 ₽</span>
             </div>
-            <a href="#contacts" class="btn btn-outline btn-sm">Записаться</a>
+            <a href="#bookingFormWrap" class="btn btn-outline btn-sm" data-cta="open-form" data-workshop="Интенсив на 4 встречи">Записаться</a>
           </div>
         </article>
       </div>
@@ -1257,28 +1263,28 @@
                 <div class="schedule-date">Суббота, 14 октября — 15:00</div>
                 <div class="schedule-time">Первое знакомство с кругом · осталось 2 места</div>
               </div>
-              <a href="#bookingFormWrap" class="btn btn-primary btn-sm">Записаться</a>
+              <a href="#bookingFormWrap" class="btn btn-primary btn-sm" data-cta="open-form" data-workshop="Первое знакомство с гончарным кругом" data-date="2026-10-14">Записаться</a>
             </li>
             <li class="schedule-item">
               <div class="schedule-info">
                 <div class="schedule-date">Воскресенье, 15 октября — 12:00</div>
                 <div class="schedule-time">Лепка руками: чашки и миски · осталось 4 места</div>
               </div>
-              <a href="#bookingFormWrap" class="btn btn-primary btn-sm">Записаться</a>
+              <a href="#bookingFormWrap" class="btn btn-primary btn-sm" data-cta="open-form" data-workshop="Лепка руками: чашки и миски" data-date="2026-10-15">Записаться</a>
             </li>
             <li class="schedule-item">
               <div class="schedule-info">
                 <div class="schedule-date">Четверг, 19 октября — 19:00</div>
                 <div class="schedule-time">Парное занятие для двоих · остался 1 стол</div>
               </div>
-              <a href="#bookingFormWrap" class="btn btn-primary btn-sm">Записаться</a>
+              <a href="#bookingFormWrap" class="btn btn-primary btn-sm" data-cta="open-form" data-workshop="Парное занятие для двоих" data-date="2026-10-19">Записаться</a>
             </li>
             <li class="schedule-item">
               <div class="schedule-info">
                 <div class="schedule-date">Суббота, 21 октября — 11:00</div>
                 <div class="schedule-time">Интенсив на 4 встречи · старт новой группы</div>
               </div>
-              <a href="#bookingFormWrap" class="btn btn-primary btn-sm">Записаться</a>
+              <a href="#bookingFormWrap" class="btn btn-primary btn-sm" data-cta="open-form" data-workshop="Интенсив на 4 встречи" data-date="2026-10-21">Записаться</a>
             </li>
           </ul>
         </div>
@@ -1411,6 +1417,83 @@
               '<h3>Спасибо за заявку!</h3>' +
               '<p>Мы свяжемся с вами в течение 15 минут для подтверждения времени записи.</p>' +
             '</div>';
+        });
+      }
+
+      // ---------- CTA-кнопки: открытие формы записи с предзаполнением ----------
+      var ctaLinks = document.querySelectorAll('[data-cta="open-form"]');
+      var bkWorkshop = document.getElementById('bkWorkshop');
+      var bkDate = document.getElementById('bkDate');
+      var bkName = document.getElementById('bkName');
+
+      function pickWorkshop(name) {
+        if (!bkWorkshop || !name) {
+          return false;
+        }
+        var i;
+        for (i = 0; i < bkWorkshop.options.length; i++) {
+          if (bkWorkshop.options[i].value === name || bkWorkshop.options[i].text === name) {
+            bkWorkshop.selectedIndex = i;
+            return true;
+          }
+        }
+        return false;
+      }
+
+      function flashField(field) {
+        if (!field) {
+          return;
+        }
+        field.classList.add('is-prefilled');
+        setTimeout(function () {
+          field.classList.remove('is-prefilled');
+        }, 1200);
+      }
+
+      var i;
+      for (i = 0; i < ctaLinks.length; i++) {
+        ctaLinks[i].addEventListener('click', function (e) {
+          e.preventDefault();
+          if (!bookingFormWrap) {
+            return;
+          }
+
+          var workshop = this.getAttribute('data-workshop');
+          var date = this.getAttribute('data-date');
+          var prefilled = false;
+
+          if (pickWorkshop(workshop)) {
+            prefilled = true;
+            flashField(bkWorkshop);
+          }
+
+          if (date && bkDate) {
+            bkDate.value = date;
+            prefilled = true;
+            flashField(bkDate);
+          }
+
+          bookingFormWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          if (prefilled) {
+            bookingFormWrap.classList.remove('is-highlighted');
+            void bookingFormWrap.offsetWidth;
+            bookingFormWrap.classList.add('is-highlighted');
+          }
+
+          setTimeout(function () {
+            var target = null;
+            if (bkName && bkName.value === '') {
+              target = bkName;
+            } else if (bkWorkshop && bkWorkshop.value === '') {
+              target = bkWorkshop;
+            } else if (bkDate && bkDate.value === '') {
+              target = bkDate;
+            }
+            if (target) {
+              target.focus({ preventScroll: true });
+            }
+          }, 350);
         });
       }
     });
